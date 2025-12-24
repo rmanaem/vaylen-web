@@ -10,8 +10,8 @@ export default function Navbar() {
             className="fixed top-0 left-0 z-40 w-full px-6 py-6 md:px-12"
         >
             <div className="flex items-center justify-between">
-                {/* Logo Mark (Mini version) */}
-                <div className="w-10 h-10">
+                {/* Logo Mark - Hidden on mobile because it's in the Hero there */}
+                <div className="w-10 h-10 hidden md:block">
                     <svg
                         viewBox="517.85 517.85 964.3 964.3"
                         className="w-full h-full text-white fill-current"
