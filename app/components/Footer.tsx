@@ -1,38 +1,65 @@
-// app/components/Footer.tsx
+"use client";
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { DS } from '../design-system/tokens';
+import { VARIANTS } from '../design-system/animations';
+import { COPY } from '../config/copy';
+import EmailForm from './EmailForm';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="w-full py-12 border-t border-white/10 bg-black text-gray-400">
-            <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <motion.footer
+            variants={VARIANTS.fade}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="w-full py-16 border-t border-steel-idle/20 bg-bg text-ink-subtle"
+        >
+            <div className={`${DS.layout.container} grid grid-cols-1 md:grid-cols-2 gap-12 items-end`}>
 
-                {/* BRAND & LEGAL IDENTITY (Critical for Apple) */}
-                <div className="text-center md:text-left">
-                    <h3 className="text-lg font-bold text-white mb-1 tracking-tight">VAYLEN</h3>
-                    <p className="text-sm">
-                        © {currentYear} <span className="text-gray-200">La Compagnie Vaylen Inc.</span>
-                    </p>
-                    <p className="text-xs text-gray-600 mt-1">
-                        Vaylen is a trading name of La Compagnie Vaylen Inc.
-                    </p>
+                {/* LEFT: BRAND & LEGAL */}
+                <div className="flex flex-col gap-6 text-center md:text-left">
+                    <div>
+                        <h3 className="text-xl font-bold text-ink mb-2 tracking-tight">VAYLEN</h3>
+                        <p className={`${DS.typography.caption} max-w-xs mx-auto md:mx-0`}>
+                            The precision instrument for physical mastery.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2 text-sm font-medium">
+                        <Link href="/privacy" className="hover:text-ink transition-colors">
+                            Privacy
+                        </Link>
+                        <Link href="/terms" className="hover:text-ink transition-colors">
+                            Terms
+                        </Link>
+                        <a href="mailto:legal@vaylen.app" className="hover:text-ink transition-colors">
+                            Contact
+                        </a>
+                    </div>
+
+                    <div className="space-y-1">
+                        <p className={DS.typography.caption}>
+                            © {currentYear} <span className="text-ink">La Compagnie Vaylen Inc.</span>
+                        </p>
+                        <p className="text-[10px] text-ink-tertiary">
+                            {COPY.footer.trading}
+                        </p>
+                    </div>
                 </div>
 
-                {/* COMPLIANCE LINKS (Critical for Apple) */}
-                <div className="flex gap-8 text-sm font-medium">
-                    <Link href="/privacy" className="hover:text-white transition-colors">
-                        Privacy
-                    </Link>
-                    <Link href="/terms" className="hover:text-white transition-colors">
-                        Terms
-                    </Link>
-                    <a href="mailto:legal@vaylen.app" className="hover:text-white transition-colors">
-                        Contact
-                    </a>
+                {/* RIGHT: NEWSLETTER / WAITLIST */}
+                <div className="flex flex-col items-center md:items-end gap-4">
+                    <p className="text-sm font-semibold text-ink">
+                        Get early access to the beta.
+                    </p>
+                    <EmailForm id="footer-email" />
                 </div>
 
             </div>
-        </footer>
+        </motion.footer>
     );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { VARIANTS } from "../design-system/animations";
+import EmailForm from "./EmailForm";
 
 export default function Hero() {
     return (
@@ -60,19 +61,13 @@ export default function Hero() {
             {/* 4. INPUT & BUTTON */}
             <motion.div
                 variants={VARIANTS.fadeInUp}
-                className="flex items-center w-full max-w-sm mt-10 space-x-2 px-4 md:px-0"
+                className="flex items-center justify-center w-full mt-10 px-4 md:px-0"
             >
-                <input
-                    type="email"
-                    placeholder="Enter email..."
-                    className="w-full px-4 py-3 text-sm font-medium transition-colors border rounded-lg bg-obsidian-light border-white/10 focus:border-steel-active focus:outline-none placeholder:text-steel-dark/50 text-ink"
-                />
-                <button className="whitespace-nowrap px-8 py-3 text-sm font-bold tracking-wide uppercase rounded-lg bg-white text-black hover:bg-steel-active transition-colors">
-                    Join
-                </button>
+                <EmailForm id="hero-input" />
             </motion.div>
 
             {/* 5. APP OVERVIEW & PHONE MOCKUP */}
+            {/* // TODO: Update image */}
             <motion.div
                 variants={VARIANTS.fadeInUp}
                 className="relative mt-24 w-full max-w-5xl mx-auto flex flex-col items-center"

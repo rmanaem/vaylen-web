@@ -12,19 +12,19 @@ const features = [
         id: "logging",
         title: "Frictionless Logging",
         description: "Log food in seconds, not minutes. Our database learns your habits.",
-        image: "/image_b56dc2.png" // Updated with your asset
+        image: "/screen-logger.png"
     },
     {
         id: "brain",
         title: "The Vaylen Brain",
         description: "Watch the algorithm analyze your metabolism in real-time.",
-        image: "/image_b49c27.png" // Updated with your asset
+        image: "/screen-fatigue.png"
     },
     {
         id: "fatigue",
         title: "Fatigue Management",
         description: "We flag burnout before it happens and adjust your training.",
-        image: "/image_b49c0a.jpg" // Updated with your asset
+        image: "/screen-graph.png"
     }
 ];
 
