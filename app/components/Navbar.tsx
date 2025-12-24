@@ -24,7 +24,7 @@ export default function Navbar() {
                 {/* Optional: Right side link (Login, etc.) */}
                 <div className="hidden md:block">
                     <span className="text-xs font-bold tracking-widest text-steel-dark uppercase">
-                        Vaylen Inc.
+                        Vaylen
                     </span>
                 </div>
             </div>

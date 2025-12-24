@@ -4,30 +4,41 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import { COPY } from "../config/copy";
 import { DS } from "../design-system/tokens";
+import { VARIANTS } from "../design-system/animations";
 
 export default function Pricing() {
     return (
         <section className={DS.surfaces.section}>
 
             <div className={DS.layout.container}>
-                <div className="text-center mb-20">
-                    <h2 className={`${DS.typography.headline} mb-6`}>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={VARIANTS.container}
+                    className="text-center mb-20"
+                >
+                    <motion.h2 variants={VARIANTS.fadeInUp} className={`${DS.typography.headline} mb-6`}>
                         {COPY.pricing.title}
-                    </h2>
-                    <p className={`${DS.typography.subheadline} max-w-2xl mx-auto`}>
+                    </motion.h2>
+                    <motion.p variants={VARIANTS.fadeInUp} className={`${DS.typography.subheadline} max-w-2xl mx-auto`}>
                         {COPY.pricing.subtitle}
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
-                <div className={DS.layout.grid2}>
+                <motion.div
+                    variants={VARIANTS.container}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className={DS.layout.grid2}
+                >
 
                     {/* Plan 1: Free */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className={DS.surfaces.card}
+                        variants={VARIANTS.fadeInUp}
+                        whileHover={{ y: -8 }}
+                        className={`${DS.surfaces.card} group transition-all duration-300 hover:border-steel-active/30`}
                     >
                         <div className="mb-8">
                             <h3 className={`${DS.typography.title} mb-2`}>{COPY.pricing.plans.free.name}</h3>
@@ -52,7 +63,7 @@ export default function Pricing() {
                         </div>
 
                         <div className="mt-auto">
-                            <button className={DS.controls.btnCardSecondary}>
+                            <button className={`${DS.controls.btnCardSecondary} w-full transition-colors group-hover:bg-steel-idle group-hover:text-white`}>
                                 {COPY.pricing.plans.free.cta}
                             </button>
                             <p className={`text-center mt-4 ${DS.typography.caption}`}>
@@ -63,11 +74,9 @@ export default function Pricing() {
 
                     {/* Plan 2: Pro */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className={DS.surfaces.cardHighlight}
+                        variants={VARIANTS.fadeInUp}
+                        whileHover={{ y: -8 }}
+                        className={`${DS.surfaces.cardHighlight} group relative transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(229,229,234,0.1)]`}
                     >
                         {/* Recommended Badge */}
                         <div className="absolute top-0 right-0 p-px rounded-bl-2xl rounded-tr-[31px] bg-gradient-to-bl from-steel-active to-transparent overflow-hidden">
@@ -97,7 +106,7 @@ export default function Pricing() {
                         </div>
 
                         <div className="mt-auto">
-                            <button className={DS.controls.btnCardPrimary}>
+                            <button className={`${DS.controls.btnCardPrimary} w-full transition-transform group-hover:scale-[1.02]`}>
                                 {COPY.pricing.plans.pro.cta}
                             </button>
                             <p className={`text-center mt-4 text-ink-subtle ${DS.typography.caption}`}>
@@ -105,7 +114,7 @@ export default function Pricing() {
                             </p>
                         </div>
                     </motion.div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
