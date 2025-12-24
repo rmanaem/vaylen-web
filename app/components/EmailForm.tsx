@@ -3,6 +3,10 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, Check } from "lucide-react";
+// 1. Import Firestore methods
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+// 2. Import your db instance (adjust path if your firebase.ts is elsewhere)
+import { db } from "../firebase";
 
 export default function EmailForm({
     id = "email-form"
@@ -18,11 +22,24 @@ export default function EmailForm({
 
         setStatus("loading");
 
-        // Simulate API call
-        setTimeout(() => {
+        try {
+            // 3. ACTUAL DATABASE WRITE
+            await addDoc(collection(db, "waitlist"), {
+                email: email,
+                createdAt: serverTimestamp(), // Good for sorting later
+                source: "vaylen-web-join-waitlist"         // Useful if you have an iOS app waitlist too
+            });
+
+            // Success! Show the success UI
             setStatus("success");
             setEmail("");
-        }, 1500);
+
+        } catch (error) {
+            console.error("Error adding to waitlist: ", error);
+            // If it fails, reset to idle so they can try again
+            setStatus("idle");
+            alert("Something went wrong. Please try again.");
+        }
     };
 
     return (
@@ -30,16 +47,14 @@ export default function EmailForm({
             <form onSubmit={handleSubmit} className="relative w-full">
                 <AnimatePresence mode="wait">
                     {status === "success" ? (
-                        // SUCCESS STATE: Premium "Stealth Glass" Style (Monochrome)
+                        // SUCCESS STATE: Premium "Stealth Glass" Style
                         <motion.div
                             key="success"
                             initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
                             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                            // REPLACED GREEN CLASSES HERE:
                             className="w-full px-4 py-3 text-sm font-bold text-center text-white bg-white/10 border border-white/20 rounded-lg backdrop-blur-md shadow-[0_0_20px_-10px_rgba(255,255,255,0.1)]"
                         >
                             <span className="flex items-center justify-center gap-2 select-none">
-                                {/* Slightly thicker checkmark for better presence */}
                                 <Check className="w-5 h-5" strokeWidth={2.5} />
                                 <span className="tracking-wide uppercase text-xs">You're on the list.</span>
                             </span>
@@ -58,7 +73,7 @@ export default function EmailForm({
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email..."
+                                placeholder="Enter email..."
                                 disabled={status === "loading"}
                                 className="w-full px-4 py-3 text-sm font-medium transition-colors border rounded-lg bg-obsidian-light border-white/10 focus:border-steel-active focus:outline-none placeholder:text-steel-dark/50 text-ink disabled:opacity-50"
                             />
