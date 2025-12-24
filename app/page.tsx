@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -7,8 +6,9 @@ import Hero from "./components/Hero";
 import BentoGrid from "./components/BentoGrid";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import AppLogoReveal from "./components/AppLogoReveal";
-import { VARIANTS } from "./design-system/animations"; // Import system
+import { VARIANTS } from "./design-system/animations";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,8 +21,7 @@ export default function Home() {
         {isLoading && (
           <motion.div
             key="loader"
-            // We can define a one-off variant for the loader or keep it simple here
-            exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.8, ease: "easeInOut" } }}
+            exit={{ opacity: 0, scale: 1.1, transition: { duration: 0.8, ease: "easeInOut" } }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-obsidian"
           >
             <AppLogoReveal onComplete={() => setIsLoading(false)} />
@@ -31,15 +30,24 @@ export default function Home() {
       </AnimatePresence>
 
       {/* 2. MAIN CONTENT */}
-      {/* The `animate` prop controls the state. When !isLoading, it switches to "visible" */}
       <motion.div
         initial="hidden"
         animate={!isLoading ? "visible" : "hidden"}
-        variants={VARIANTS.container}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              // DELAY INCREASED: 0.8s ensures no overlap with the fading splash
+              delayChildren: 0.8,
+              staggerChildren: 0.1
+            }
+          }
+        }}
       >
+        <Navbar />
         <Hero />
 
-        {/* You can wrap these in variants too if you want them to cascade in */}
         <motion.div variants={VARIANTS.fadeInUp}>
           <BentoGrid />
         </motion.div>
