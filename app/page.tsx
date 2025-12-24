@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AppLogoReveal from "./components/AppLogoReveal";
 import { VARIANTS } from "./design-system/animations";
+import AppShowcase from "./components/AppShowcase";
 
 export default function Home() {
   // Single state to track splash status: null (not mounted), true (show splash), false (skip splash)
@@ -65,6 +66,8 @@ export default function Home() {
         <motion.div variants={VARIANTS.fadeInUp}>
           <BentoGrid />
         </motion.div>
+
+        <AppShowcase />
 
         <motion.div variants={VARIANTS.fadeInUp}>
           <Pricing />
