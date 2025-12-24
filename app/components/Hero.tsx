@@ -9,10 +9,9 @@ export default function Hero() {
         <section className="relative flex flex-col items-center justify-center pt-32 pb-0 text-center overflow-hidden z-10">
 
             {/* 0. MOBILE LOGO (Hidden on Desktop) */}
-            {/* Matches the native app welcome screen layout */}
             <motion.div
                 variants={VARIANTS.fadeInUp}
-                className="block md:hidden mb-12 w-32 h-32 text-white"
+                className="block md:hidden mb-12 w-32 h-32 text-[#E5E5EA]"
             >
                 <svg
                     viewBox="517.85 517.85 964.3 964.3"
@@ -67,7 +66,6 @@ export default function Hero() {
             </motion.div>
 
             {/* 5. APP OVERVIEW & PHONE MOCKUP */}
-            {/* // TODO: Update image */}
             <motion.div
                 variants={VARIANTS.fadeInUp}
                 className="relative mt-24 w-full max-w-5xl mx-auto flex flex-col items-center"
