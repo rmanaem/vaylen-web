@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
+import Script from "next/script"; // 1. Import the Script component
 import "./globals.css";
-import { COPY } from "./config/copy"; // Import centralized copy
-
-// We remove the Geist font imports to strictly use the "System" font stack
-// defined in your globals.css (Inter / Apple System) for that premium app feel.
+import { COPY } from "./config/copy";
 // TODO: Update metadata
 
 export const metadata: Metadata = {
@@ -15,14 +13,12 @@ export const metadata: Metadata = {
   description: COPY.hero.subheadline,
 
   // Dynamic Favicons
-  // Dynamic Favicons
   icons: {
     icon: [
       // 1. Light Mode Override: Shows Onyx (Dark) icon so it stands out on white tabs
       { url: '/favicon-onyx.ico', media: '(prefers-color-scheme: light)' },
 
       // 2. Default Fallback: Shows Silver (Light) icon
-      // This covers Dark Mode, browsers with no preference, and older browsers.
       { url: '/favicon-silver.ico' },
     ],
     apple: "/apple-icon.png",
@@ -61,10 +57,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* We add 'bg-bg' and 'text-ink' here to prevent 
-        any white flashes before the content loads.
-      */}
       <body className="antialiased bg-bg text-ink">
+        {/* 2. Add the CookieScript here. 
+            strategy="afterInteractive" ensures it loads immediately 
+            after the page is usable. 
+        */}
+        <Script
+          src="https://cdn.cookie-script.com/s/ac712d3b6f78bbd302a93dc152937174.js"
+          strategy="afterInteractive"
+        />
+
         {children}
       </body>
     </html>
