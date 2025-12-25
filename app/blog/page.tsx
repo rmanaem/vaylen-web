@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getSortedPosts } from '@/lib/blog';
 import { Metadata } from 'next';
+import StandardPage from '../components/StandardPage';
 
 export const metadata: Metadata = {
     title: 'Blog',
@@ -16,7 +17,7 @@ export default function BlogIndex() {
     const posts = getSortedPosts();
 
     return (
-        <main className="min-h-screen bg-bg text-ink py-20 px-4">
+        <StandardPage>
             <div className="max-w-3xl mx-auto">
 
                 {/* Header Section */}
@@ -78,6 +79,6 @@ export default function BlogIndex() {
                     )}
                 </div>
             </div>
-        </main>
+        </StandardPage>
     );
 }

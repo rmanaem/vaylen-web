@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import StandardPage from '../../components/StandardPage';
 
 // Define the Props type according to Next.js 15+ changes
 type Props = {
@@ -61,7 +62,7 @@ export default async function BlogPost({ params }: Props) {
     }
 
     return (
-        <main className="min-h-screen bg-bg text-ink py-20 px-4">
+        <StandardPage>
             <article className="max-w-3xl mx-auto">
 
                 {/* Navigation & Header */}
@@ -94,6 +95,6 @@ export default async function BlogPost({ params }: Props) {
                 </div>
 
             </article>
-        </main>
+        </StandardPage>
     );
 }
