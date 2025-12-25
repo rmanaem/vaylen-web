@@ -1,3 +1,4 @@
+// components/Footer.tsx
 "use client";
 
 import Link from 'next/link';
@@ -29,16 +30,24 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2 text-sm font-medium">
-                        <Link href="/privacy" className="hover:text-ink transition-colors">
-                            Privacy
-                        </Link>
+                    <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm font-medium">
                         <Link href="/terms" className="hover:text-ink transition-colors">
                             Terms
                         </Link>
-                        <a href="mailto:legal@vaylen.app" className="hover:text-ink transition-colors">
-                            Contact
-                        </a>
+                        <Link href="/privacy" className="hover:text-ink transition-colors">
+                            Privacy
+                        </Link>
+                        <Link href="/health-privacy" className="hover:text-ink transition-colors">
+                            Consumer Health Privacy
+                        </Link>
+                        <Link href="/disclaimer" className="hover:text-ink transition-colors">
+                            Disclaimer
+                        </Link>
+                        {/* Hidden until store launch
+                        <Link href="/refund" className="hover:text-ink transition-colors">
+                            Returns
+                        </Link> 
+                        */}
                     </div>
 
                     <div className="space-y-1">
@@ -46,6 +55,7 @@ export default function Footer() {
                             © {currentYear} <span className="text-ink">La Compagnie Vaylen Inc.</span>
                         </p>
                         <p className="text-[10px] text-ink-tertiary">
+                            {/* Ensure this variable in your config contains: "Vaylen is a trading name of La Compagnie Vaylen Inc." */}
                             {COPY.footer.trading}
                         </p>
                     </div>
