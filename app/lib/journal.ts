@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 // This looks for a "content" folder in the root of your project
 const contentDirectory = path.join(process.cwd(), 'content');
 
-export type BlogPost = {
+export type Article = {
     slug: string;
     title: string;
     date: string;
@@ -13,7 +13,7 @@ export type BlogPost = {
     content: string; // The raw markdown content
 };
 
-export function getSortedPosts(): Omit<BlogPost, 'content'>[] {
+export function getSortedArticles(): Omit<Article, 'content'>[] {
     // 1. Create the content directory if it doesn't exist (safety check)
     if (!fs.existsSync(contentDirectory)) {
         return [];
@@ -21,7 +21,7 @@ export function getSortedPosts(): Omit<BlogPost, 'content'>[] {
 
     const fileNames = fs.readdirSync(contentDirectory);
 
-    const allPostsData = fileNames
+    const allArticlesData = fileNames
         .filter((fileName) => fileName.endsWith('.mdx'))
         .map((fileName) => {
             const slug = fileName.replace(/\.mdx$/, '');
@@ -35,11 +35,11 @@ export function getSortedPosts(): Omit<BlogPost, 'content'>[] {
             };
         });
 
-    // 2. Sort posts by date (newest first)
-    return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+    // 2. Sort articles by date (newest first)
+    return allArticlesData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getPostData(slug: string): BlogPost | null {
+export function getArticleData(slug: string): Article | null {
     const fullPath = path.join(contentDirectory, `${slug}.mdx`);
 
     if (!fs.existsSync(fullPath)) {

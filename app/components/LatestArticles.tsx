@@ -1,21 +1,37 @@
+"use client";
+
 import Link from 'next/link';
-import { getSortedPosts } from '@/lib/blog';
-import { DS } from '../design-system/tokens'; // Assuming you have these
+import { motion } from 'framer-motion';
+import { VARIANTS } from '../design-system/animations';
 
-export function LatestArticles() {
-    // 1. Fetch posts directly (Server Component magic)
-    const posts = getSortedPosts();
+type Article = {
+    slug: string;
+    title: string;
+    date: string;
+    description: string;
+};
 
-    // 2. Safety Check: If no posts exist, render nothing.
-    if (!posts || posts.length === 0) {
+interface LatestArticlesProps {
+    articles: Omit<Article, 'content'>[];
+}
+
+export function LatestArticles({ articles }: LatestArticlesProps) {
+    // Safety Check: If no articles exist, render nothing.
+    if (!articles || articles.length === 0) {
         return null;
     }
 
-    // 3. Take only the latest 3
-    const recentPosts = posts.slice(0, 3);
+    // Take only the latest 3
+    const recentArticles = articles.slice(0, 3);
 
     return (
-        <section className="w-full py-24 border-t border-steel-idle/20 bg-bg">
+        <motion.section
+            variants={VARIANTS.fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="w-full py-24 border-t border-steel-idle/20 bg-bg"
+        >
             <div className="max-w-6xl mx-auto px-4 md:px-6">
 
                 {/* Section Header */}
@@ -38,16 +54,16 @@ export function LatestArticles() {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {recentPosts.map((post) => (
+                    {recentArticles.map((article) => (
                         <Link
-                            key={post.slug}
-                            href={`/blog/${post.slug}`}
+                            key={article.slug}
+                            href={`/journal/${article.slug}`}
                             className="group block"
                         >
                             <article className="flex flex-col h-full bg-steel-idle/5 rounded-2xl p-6 hover:bg-steel-idle/10 transition-colors border border-transparent hover:border-steel-idle/20">
                                 {/* Date */}
                                 <time className="text-xs font-medium text-ink-tertiary mb-3 block">
-                                    {new Date(post.date).toLocaleDateString('en-US', {
+                                    {new Date(article.date).toLocaleDateString('en-US', {
                                         month: 'short',
                                         day: 'numeric',
                                         year: 'numeric',
@@ -57,12 +73,12 @@ export function LatestArticles() {
 
                                 {/* Title */}
                                 <h3 className="text-lg font-bold text-ink mb-2 group-hover:text-steel-active transition-colors">
-                                    {post.title}
+                                    {article.title}
                                 </h3>
 
                                 {/* Description (Truncated) */}
                                 <p className="text-sm text-ink-subtle leading-relaxed line-clamp-3 mb-4 flex-grow">
-                                    {post.description}
+                                    {article.description}
                                 </p>
 
                                 {/* Micro-Interaction */}
@@ -75,6 +91,6 @@ export function LatestArticles() {
                 </div>
 
             </div>
-        </section>
+        </motion.section>
     );
 }

@@ -1,4 +1,4 @@
-import { getPostData, getSortedPosts } from '@/lib/blog';
+import { getArticleData, getSortedArticles } from '@/lib/journal';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
@@ -13,29 +13,29 @@ type Props = {
 // 1. Generate Static Paths (SSG)
 // This tells Next.js to pre-build these pages at deploy time for instant loading.
 export async function generateStaticParams() {
-    const posts = getSortedPosts();
-    return posts.map((post) => ({
-        slug: post.slug,
+    const articles = getSortedArticles();
+    return articles.map((article) => ({
+        slug: article.slug,
     }));
 }
 
 // 2. SEO Metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params; // Await params (Next.js 15+ requirement)
-    const post = getPostData(slug);
+    const article = getArticleData(slug);
 
-    if (!post) {
-        return { title: 'Post Not Found' };
+    if (!article) {
+        return { title: ' Article Not Found' };
     }
 
     return {
-        title: `${post.title} | Vaylen`,
-        description: post.description,
+        title: `${article.title} | Vaylen`,
+        description: article.description,
         openGraph: {
-            title: post.title,
-            description: post.description,
+            title: article.title,
+            description: article.description,
             type: 'article',
-            publishedTime: post.date,
+            publishedTime: article.date,
         },
     };
 }
@@ -53,11 +53,11 @@ const components = {
 };
 
 // 4. The Page Component
-export default async function BlogPost({ params }: Props) {
+export default async function JournalArticle({ params }: Props) {
     const { slug } = await params; // Await params here too!
-    const post = getPostData(slug);
+    const article = getArticleData(slug);
 
-    if (!post) {
+    if (!article) {
         notFound();
     }
 
@@ -68,18 +68,18 @@ export default async function BlogPost({ params }: Props) {
                 {/* Navigation & Header */}
                 <header className="mb-10 border-b border-steel-idle/20 pb-8">
                     <Link
-                        href="/blog"
+                        href="/journal"
                         className="text-sm text-ink-tertiary hover:text-ink mb-4 inline-block transition-colors"
                     >
-                        ← Back to Blog
+                        ← Back to Journal
                     </Link>
 
                     <h1 className="text-3xl md:text-4xl font-bold text-ink mb-4 tracking-tight">
-                        {post.title}
+                        {article.title}
                     </h1>
 
                     <time className="text-sm text-ink-tertiary">
-                        {new Date(post.date).toLocaleDateString('en-US', {
+                        {new Date(article.date).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric',
@@ -91,7 +91,7 @@ export default async function BlogPost({ params }: Props) {
                 {/* Content Body */}
                 {/* We use 'prose-invert' because your app is dark mode */}
                 <div className="prose prose-invert prose-lg max-w-none">
-                    <MDXRemote source={post.content} components={components} />
+                    <MDXRemote source={article.content} components={components} />
                 </div>
 
             </article>

@@ -36,7 +36,7 @@ export default function Navbar({ showJournal = false }: NavbarProps) {
                     {/* Conditionally render Journal Link */}
                     {showJournal && (
                         <Link
-                            href="/blog"
+                            href="/journal"
                             className="text-xs font-bold tracking-widest text-steel-dark uppercase hover:text-white transition-colors"
                         >
                             Journal
