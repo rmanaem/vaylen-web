@@ -2,7 +2,7 @@
 **Last Updated:** December 24, 2025
 
 **1. MEDICAL DISCLAIMER**
-La Compagnie Vaylen Inc. ("Vaylen") is not a medical organization. The information provided in our app, website, and emails regarding training, nutrition, and supplements is for educational and informational purposes only. It is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician regarding any medical condition.
+**La Compagnie Vaylen Inc.** (doing business as "Vaylen") is not a medical organization. The information provided in our app, website, and emails regarding training, nutrition, and supplements is for educational and informational purposes only. It is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician regarding any medical condition.
 
 **2. FITNESS DISCLAIMER**
 You engage in the fitness programs and nutritional plans offered by Vaylen at your own risk. Vaylen is not responsible for any injuries or health problems that may result from your engagement in these programs.

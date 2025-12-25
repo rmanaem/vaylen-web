@@ -2,42 +2,31 @@
 **Last Updated:** December 24, 2025
 
 **1. INTRODUCTION**
-These Terms of Service ("Terms") constitute a binding legal agreement between you ("User") and **La Compagnie Vaylen Inc.** ("Vaylen," "we," "us," or "our"), a corporation registered in Quebec, Canada (4388 Rue Saint-Denis Suite 200 #767, Montreal, QC). These Terms govern your use of the Vaylen mobile application, the website located at vaylen.app, and our online store (collectively, the "Services").
+These Terms of Service ("Terms") are a binding legal agreement between you ("User") and **La Compagnie Vaylen Inc.** (doing business as "Vaylen"), a corporation registered in Quebec, Canada (4388 Rue Saint-Denis Suite 200 #767, Montreal, QC). These Terms govern your use of the Vaylen mobile app and website (vaylen.app).
+* **Standard EULA:** Your use of the Vaylen App is also governed by the Apple Standard End User License Agreement (EULA).
 
-**2. AGE REQUIREMENT**
-By accessing the Services, you confirm that you are at least 18 years of age and have the legal capacity to enter into this agreement.
+**2. AGE & ELIGIBILITY**
+By using Vaylen, you verify that you are at least **18 years of age**. The Service is not intended for minors. If you are under 18, you are not permitted to use Vaylen.
 
-**3. MEDICAL DISCLAIMER & ASSUMPTION OF RISK (CRITICAL)**
-* **3.1 No Medical Advice:** Vaylen provides fitness and nutritional content for informational purposes only. We are not a medical organization. Nothing in the Services should be construed as medical advice or diagnosis. You should consult your physician before starting any weight loss or exercise regimen.
-* **3.2 Assumption of Risk:** You understand that physical exercise, including weightlifting and high-intensity interval training, involves a risk of serious physical injury or death. By using Vaylen, you voluntarily assume all such risks.
-* **3.3 Release of Liability:** To the fullest extent permitted by law, you agree to hold La Compagnie Vaylen Inc. harmless from any injuries or damages sustained while using our Services.
+**3. MEDICAL DISCLAIMER & ASSUMPTION OF RISK**
+* **3.1 Information Only:** Vaylen provides training and nutrition insights for educational purposes only. We are **not** a medical organization. Nothing in the app is medical advice.
+* **3.2 Assumption of Risk:** You understand that high-intensity exercise and weightlifting carry inherent risks of injury, disability, or death. By using Vaylen, you **voluntarily assume all such risks**.
+* **3.3 Release:** You release La Compagnie Vaylen Inc. from any liability for injuries sustained while using the Service.
 
 **4. ACCOUNTS & SUBSCRIPTIONS**
-* **4.1 Accounts:** You are responsible for maintaining the confidentiality of your login credentials. Notify us immediately at legal@vaylen.app of any unauthorized access.
-* **4.2 Subscriptions:** Vaylen offers auto-renewing subscription plans. Payment will be charged to your iTunes or Google Play account at confirmation of purchase.
-* **4.3 Auto-Renewal:** Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period. You can manage subscriptions in your device Account Settings.
-* **4.4 Free Trials:** If you sign up for a free trial, you will be automatically charged the subscription fee upon expiration unless canceled prior.
+* **4.1 Security:** You are responsible for safeguarding your account login.
+* **4.2 Subscription Plans:** Vaylen offers various paid subscription plans ("Subscriptions"). Payment is charged to your Apple ID or Google Play account upon confirmation.
+* **4.3 Auto-Renewal:** Subscriptions automatically renew unless canceled at least 24 hours before the end of the current billing period. You can manage this in your device settings.
+* **4.4 Refunds:** Digital refunds are handled exclusively by the Apple App Store or Google Play Store according to their policies.
 
-**5. ONLINE STORE & MERCHANDISE**
-* **5.1 Orders:** All orders for physical goods placed via vaylen.app are subject to acceptance and availability. We reserve the right to cancel orders for pricing errors.
-* **5.2 Risk of Loss:** All items purchased from Vaylen are made pursuant to a shipment contract. The risk of loss and title for such items pass to you upon our delivery to the carrier.
-* **5.3 Returns:** For physical merchandise, please refer to our Return Policy on the website. Digital subscriptions are non-refundable except where required by law.
+**5. FUTURE COMMERCE**
+We may offer physical goods for sale in the future. Specific terms regarding shipping, returns, and warranties will be provided at the time of purchase.
 
-**6. USER GENERATED CONTENT (UGC)**
-* **6.1 License:** By uploading content (e.g., progress photos, workout logs, text) to Vaylen, you grant us a worldwide, non-exclusive, royalty-free license to use, host, store, and display that content in connection with operating the Service.
-* **6.2 Prohibited Content:** You agree not to upload content that is illegal, infringes on intellectual property, or is sexually explicit. We reserve the right to remove such content without notice.
+**6. USER CONTENT**
+Any logs or data you enter into Vaylen remain your property. You grant us a license to host and display that data strictly to operate the Service.
 
-**7. INTELLECTUAL PROPERTY**
-All visual interfaces, graphics, design, compilation, code, and "Vaylen" trademarks are the exclusive property of La Compagnie Vaylen Inc. You may not copy or reverse engineer any part of the Service.
+**7. GOVERNING LAW**
+These Terms are governed by the laws of **Quebec, Canada**. Any disputes shall be resolved in the courts of Montreal.
 
-**8. FEEDBACK**
-If you provide feedback or suggestions, you agree that Vaylen may use such feedback without any obligation or compensation to you.
-
-**9. PROMOTIONS**
-Any contests or sweepstakes made available through the Service may be governed by specific rules that are separate from these Terms. If you participate, you will be subject to those rules.
-
-**10. GOVERNING LAW**
-These Terms shall be governed by the laws of the Province of Quebec and the laws of Canada applicable therein.
-
-**11. CONTACT**
-For legal inquiries: **legal@vaylen.app**
+**8. CONTACT**
+**Email:** legal@vaylen.app
