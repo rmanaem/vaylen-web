@@ -1,6 +1,8 @@
+import StandardPage from '../components/StandardPage';
+
 export default function HealthPrivacy() {
     return (
-        <main className="min-h-screen bg-black text-gray-300 py-20 px-4">
+        <StandardPage>
             <div className="max-w-3xl mx-auto space-y-8">
                 <h1 className="text-4xl font-bold text-white mb-8">Consumer Health Data Privacy Policy</h1>
 
@@ -73,6 +75,6 @@ export default function HealthPrivacy() {
                     </div>
                 </section>
             </div>
-        </main>
+        </StandardPage>
     );
 }

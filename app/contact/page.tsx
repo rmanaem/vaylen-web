@@ -1,8 +1,10 @@
+import StandardPage from '../components/StandardPage';
+
 import { Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
     return (
-        <main className="min-h-screen bg-black text-white flex items-center justify-center p-4">
+        <StandardPage>
             <div className="max-w-md w-full bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
                 <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
 
@@ -33,6 +35,6 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-        </main>
+        </StandardPage>
     );
 }
