@@ -6,25 +6,27 @@ import { DS } from "../design-system/tokens";
 import { VARIANTS } from "../design-system/animations";
 
 // 1. DEFINE YOUR SHOWCASE TABS
-// TODO: Update feature copy and images
 const features = [
     {
-        id: "logging",
-        title: "Frictionless Logging",
-        description: "Log food in seconds, not minutes. Our database learns your habits.",
-        image: "/screen-logger.png"
+        id: "nutrition",
+        title: "Verified Input",
+        description: "Eliminate estimation. Search a comprehensive, verified database for precise nutritional input.",
+        video: "/nutrition.webm",
+        image: "/screen-nutrition.png"
     },
     {
-        id: "brain",
-        title: "The Vaylen Brain",
-        description: "Watch the algorithm analyze your metabolism in real-time.",
-        image: "/screen-fatigue.png"
+        id: "training",
+        title: "Program Architecture",
+        description: "Construct detailed routines with precision. Define sets, reps, and RPE targets without breaking flow.",
+        video: "/training.webm",
+        image: "/screen-training.png"
     },
     {
-        id: "fatigue",
-        title: "Fatigue Management",
-        description: "We flag burnout before it happens and adjust your training.",
-        image: "/screen-graph.png"
+        id: "insight",
+        title: "Trend Visualization",
+        description: "Visualize weight curves, nutrition intake, and strength index with absolute clarity.",
+        video: "/insight.webm",
+        image: "/screen-insight.png"
     }
 ];
 
@@ -47,10 +49,10 @@ export default function AppShowcase() {
                     >
                         <div className="mb-8">
                             <motion.h2 variants={VARIANTS.fadeInUp} className={DS.typography.headline}>
-                                Built for Speed.
+                                The Interface.
                             </motion.h2>
                             <motion.p variants={VARIANTS.fadeInUp} className={DS.typography.subheadline}>
-                                Experience the only app that thinks as fast as you do.
+                                A precision environment for your data. Capture, execute, and visualize without resistance.
                             </motion.p>
                         </div>
 
@@ -105,33 +107,37 @@ export default function AppShowcase() {
                                 ease: "easeInOut",
                             }}
                         >
-                            {/* Pulse dot at the end */}
-                            <motion.div
-                                className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-steel-active rounded-full"
-                                animate={{
-                                    scale: [1, 1.5, 1],
-                                    opacity: [1, 0.5, 1],
-                                }}
-                                transition={{
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                            />
+
                         </motion.div>
 
                         <div className="relative w-[300px] h-[600px] bg-black border-2 border-steel-active rounded-[2.5rem] overflow-hidden z-10">
                             <AnimatePresence mode="wait">
-                                <motion.img
-                                    key={features[activeTab].id}
-                                    src={features[activeTab].image}
-                                    alt={features[activeTab].title}
-                                    initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    exit={{ opacity: 0, y: -10, filter: "blur(2px)" }}
-                                    transition={{ duration: 0.4, ease: "easeOut" }}
-                                    className="w-full h-full object-cover"
-                                />
+                                {features[activeTab].video ? (
+                                    <motion.video
+                                        key={features[activeTab].id}
+                                        src={features[activeTab].video}
+                                        initial={{ opacity: 0, filter: "blur(4px)" }}
+                                        animate={{ opacity: 1, filter: "blur(0px)" }}
+                                        exit={{ opacity: 0, filter: "blur(2px)" }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                        className="w-full h-full object-cover"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    />
+                                ) : (
+                                    <motion.img
+                                        key={features[activeTab].id}
+                                        src={features[activeTab].image}
+                                        alt={features[activeTab].title}
+                                        initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+                                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                        exit={{ opacity: 0, y: -10, filter: "blur(2px)" }}
+                                        transition={{ duration: 0.4, ease: "easeOut" }}
+                                        className="w-full h-full object-cover"
+                                    />
+                                )}
                             </AnimatePresence>
                         </div>
                     </motion.div>
