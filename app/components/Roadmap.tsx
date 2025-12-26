@@ -4,13 +4,10 @@ import { motion } from "framer-motion";
 import { Lock } from "lucide-react";
 import { DS } from "../design-system/tokens";
 import { VARIANTS } from "../design-system/animations";
+import { COPY } from "../config/copy"; // Import centralized copy
 
 export default function Roadmap() {
-    const items = [
-        "ADAPTIVE NUTRITION ENGINE",
-        "AUTOREGULATED TRAINING LOGIC",
-        "THE NEXUS FEEDBACK LOOP"
-    ];
+    const items = COPY.roadmap.items; // Use items from Copy config
 
     return (
         <section className="py-24 bg-bg border-t border-steel-idle/30">
@@ -24,7 +21,7 @@ export default function Roadmap() {
                         viewport={{ once: true }}
                         className="font-mono text-sm md:text-base text-ink-tertiary mb-12 tracking-widest uppercase"
                     >
-                        SYSTEM EXPANSION // Q1 2025
+                        {COPY.roadmap.label}
                     </motion.h3>
 
                     {/* List */}
@@ -41,7 +38,9 @@ export default function Roadmap() {
                                 variants={VARIANTS.fadeInUp}
                                 className="flex items-center justify-center gap-4 text-ink-subtle hover:text-steel-active transition-colors duration-300"
                             >
-                                <span className="font-mono text-ink-subtle text-sm" style={{ fontFamily: 'monospace' }}>[ LOCKED ]</span>
+                                <span className="font-mono text-ink-subtle text-sm" style={{ fontFamily: 'monospace' }}>
+                                    {COPY.roadmap.status}
+                                </span>
                                 <span className="font-bold uppercase tracking-wide text-lg md:text-xl relative text-white" style={{ letterSpacing: '0.05em', fontWeight: 700 }}>
                                     {item}
                                     {/* Scanline effect overlay optional */}

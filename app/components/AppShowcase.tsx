@@ -4,34 +4,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { DS } from "../design-system/tokens";
 import { VARIANTS } from "../design-system/animations";
+import { COPY } from "../config/copy"; // Import centralized copy
 
-// 1. DEFINE YOUR SHOWCASE TABS
-const features = [
-    {
-        id: "nutrition",
-        title: "Verified Input",
-        description: "Eliminate estimation. Search a comprehensive, verified database for precise nutritional input.",
-        video: "/nutrition.webm",
-        image: "/screen-nutrition.png"
-    },
-    {
-        id: "training",
-        title: "Program Architecture",
-        description: "Construct detailed routines with precision. Define sets, reps, and RPE targets without breaking flow.",
-        video: "/training.webm",
-        image: "/screen-training.png"
-    },
-    {
-        id: "insight",
-        title: "Trend Visualization",
-        description: "Visualize weight curves, nutrition intake, and strength index with absolute clarity.",
-        video: "/insight.webm",
-        image: "/screen-insight.png"
-    }
-];
+// Define interface to handle strict type checking
+interface Feature {
+    id: string;
+    title: string;
+    description: string;
+    video?: string;
+    image: string;
+}
 
 export default function AppShowcase() {
     const [activeTab, setActiveTab] = useState(0);
+    const features = COPY.showcase.tabs as unknown as Feature[]; // Proper cast
 
     return (
         <section className={`${DS.surfaces.section} overflow-hidden`}>
@@ -49,10 +35,10 @@ export default function AppShowcase() {
                     >
                         <div className="mb-8">
                             <motion.h2 variants={VARIANTS.fadeInUp} className={DS.typography.headline}>
-                                The Interface.
+                                {COPY.showcase.headline}
                             </motion.h2>
                             <motion.p variants={VARIANTS.fadeInUp} className={DS.typography.subheadline}>
-                                A precision environment for your data. Capture, execute, and visualize without resistance.
+                                {COPY.showcase.subheadline}
                             </motion.p>
                         </div>
 
@@ -95,20 +81,7 @@ export default function AppShowcase() {
                         transition={{ duration: 0.8 }}
                         className="relative h-[600px] w-full flex items-center justify-center"
                     >
-                        {/* NEXUS CONNECTION LINE - Data Flow Indicator */}
-                        <motion.div
-                            className="absolute left-0 top-1/2 w-32 h-px bg-gradient-to-r from-steel-active/0 via-steel-active to-steel-active"
-                            animate={{
-                                opacity: [0.3, 1, 0.3],
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
-                        >
 
-                        </motion.div>
 
                         <div className="relative w-[300px] h-[600px] bg-black border-2 border-steel-active rounded-[2.5rem] overflow-hidden z-10">
                             <AnimatePresence mode="wait">

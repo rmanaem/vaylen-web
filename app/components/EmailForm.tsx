@@ -6,7 +6,7 @@ import { COPY } from "../config/copy";
 import { Loader2, Check } from "lucide-react";
 // 1. Import Firestore methods
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-// 2. Import your db instance (adjust path if your firebase.ts is elsewhere)
+// 2. Import your db instance
 import { db } from "../firebase";
 
 export default function EmailForm({
@@ -24,11 +24,21 @@ export default function EmailForm({
         setStatus("loading");
 
         try {
-            // 3. ACTUAL DATABASE WRITE
+            // 3. ACTUAL DATABASE WRITE (Existing Logic)
             await addDoc(collection(db, "waitlist"), {
                 email: email,
-                createdAt: serverTimestamp(), // Good for sorting later
-                source: "vaylen-web-join-waitlist"         // Useful if you have an iOS app waitlist too
+                createdAt: serverTimestamp(),
+                source: "vaylen-web-join-waitlist"
+            });
+
+            // 4. TRIGGER EMAIL (New Logic)
+            // We use fetch to call our Next.js API route securely
+            // We don't await this if we want the UI to be snappy, 
+            // but awaiting ensures we catch email errors if needed.
+            await fetch('/api/waitlist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
             });
 
             // Success! Show the success UI
@@ -57,7 +67,7 @@ export default function EmailForm({
                         >
                             <span className="flex items-center justify-center gap-2 select-none">
                                 <Check className="w-5 h-5" strokeWidth={2.5} />
-                                <span className="tracking-wide uppercase text-xs">You're on the list.</span>
+                                <span className="tracking-wide uppercase text-xs">{COPY.hero.success}</span>
                             </span>
                         </motion.div>
                     ) : (

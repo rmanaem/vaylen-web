@@ -1,18 +1,54 @@
 export const COPY = {
     brand: {
-        version: "System V0.1 // Beta Access",
+        version: "System V0.1 Early Access",
     },
     hero: {
         headline: "PRECISION",
         headlineHighlight: "WITHOUT FRICTION.",
         subheadline: "The minimalist instrument for body composition. Seamless nutrition intake, versatile training protocols, and data-driven insights—unified into one system.",
         cta: "JOIN",
-        success: "You're on the list.",
+        success: "WAITLIST CONFIRMED.",
         placeholder: "Enter email...",
+    },
+    showcase: {
+        headline: "The Interface.",
+        subheadline: "A precision environment for your data. Capture, execute, and visualize without friction.",
+        tabs: [
+            {
+                id: "nutrition",
+                title: "Verified Input",
+                description: "Eliminate estimation. Search a comprehensive, verified database for precise nutritional input.",
+                video: "/nutrition.webm",
+                image: "/screen-nutrition.png"
+            },
+            {
+                id: "training",
+                title: "Program Architecture",
+                description: "Construct detailed routines with precision. Define sets, reps, and RPE targets without breaking flow.",
+                video: "/training.webm",
+                image: "/screen-training.png"
+            },
+            {
+                id: "insight",
+                title: "Trend Visualization",
+                description: "Visualize weight curves, nutrition intake, and strength index with absolute clarity.",
+                video: "/insight.webm",
+                image: "/screen-insight.png"
+            }
+        ]
+    },
+    roadmap: {
+        label: "SYSTEM EXPANSION Q1 2025",
+        status: "[ UPCOMING ]",
+        items: [
+            "ADAPTIVE NUTRITION ENGINE",
+            "AUTOREGULATED TRAINING LOGIC",
+            "THE NEXUS FEEDBACK LOOP"
+        ]
     },
     pillars: {
         title: "THE ESSENTIAL STANDARD.",
-        body: "Your data belongs to you. A distraction-free environment, stripped of noise and designed for absolute focus. No ads. Just the tools requisite for lifelong consistency.",
+        body: "The core instrument is free. Your data belongs to you. A distraction-free environment, stripped of noise and designed for absolute focus. No ads. Just the tracking tools requisite for lifelong consistency.",
         items: [
             {
                 title: "Frictionless Entry",
@@ -32,6 +68,7 @@ export const COPY = {
             }
         ]
     },
+    // [HIDDEN FOR INITIAL LAUNCH]
     modules: {
         adaptive: {
             title: "ADAPTIVE NUTRITION",
@@ -42,13 +79,15 @@ export const COPY = {
             description: "Reactive logic that adjusts volume to your performance."
         }
     },
+    // [HIDDEN FOR INITIAL LAUNCH]
     nexus: {
         title: "THE NEXUS.",
         subtitle: "Synchronized Intelligence.",
         body: "A cohesive system integrating nutrition and training data into a single feedback loop. Balancing physiological load by calibrating fuel against fatigue to ensure neither outpaces the other."
     },
+    // [HIDDEN FOR INITIAL LAUNCH]
     pricing: {
-        title: "CHOOSE YOUR PATH.",
+        title: "MEMBERSHIP TIERS",
         subtitle: "Use Vaylen as a powerful tracker, or upgrade to the full intelligence system.",
         plans: {
             free: {
@@ -69,7 +108,7 @@ export const COPY = {
                 name: "THE NEXUS SYSTEM",
                 description: "Automated insights. Zero headaches.",
                 price: "STATUS: WAITLIST",
-                cta: "REQUEST ACCESS",
+                cta: "JOIN",
                 features: [
                     "Everything in Standard",
                     "Adaptive Nutrition: TDEE-based targets",
@@ -81,10 +120,10 @@ export const COPY = {
         }
     },
     footer: {
-        headline: "INITIALIZE CALIBRATION.",
-        description: "The Nexus requires a baseline. Join the calibration cohort to establish your metabolic profile before the system goes live.",
-        placeholder: "> enter_email_address",
-        cta: "BEGIN",
+        headline: "REQUEST EARLY ACCESS.",
+        description: "Vaylen is currently in private early access. Join the waitlist to secure your spot before the public release.",
+        placeholder: "Enter email address",
+        cta: "JOIN",
         copyright: "La Compagnie Vaylen Inc.",
         rights: "All rights reserved.",
         trading: "Vaylen is a trading name of La Compagnie Vaylen Inc.",

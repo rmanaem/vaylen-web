@@ -4,43 +4,38 @@ import "./globals.css";
 import { COPY } from "./config/copy";
 
 export const metadata: Metadata = {
-  // Base Metadata
+  // SEO STRATEGY: Combine Brand (Precision) with Function (Tracker)
   title: {
     template: "%s | Vaylen",
-    default: "VAYLEN - Precision Without Friction",
+    default: "Vaylen | Precision Nutrition & Training Tracker",
   },
-  description: COPY.hero.subheadline,
 
-  // Keywords for SEO
+  // SEO STRATEGY: Keep the poetic description, but ensure "Free" is the last thing they read.
+  description: `${COPY.hero.subheadline} The core instrument is free.`,
+
+  // Keywords: Mix of "High Volume" (Free Tracker) and "High Intent" (Autoregulated)
   keywords: [
+    "free workout tracker",
+    "free macro logger",
     "body composition tracking",
-    "nutrition tracking",
-    "workout logging",
+    "hypertrophy training log",
     "TDEE calculator",
-    "macro tracking",
-    "training program",
     "adaptive nutrition",
     "autoregulated training",
-    "metabolism tracking",
-    "fitness tracker"
+    "industrial design fitness app"
   ],
 
-  // Dynamic Favicons
   icons: {
     icon: [
-      // 1. Light Mode Override: Shows Onyx (Dark) icon so it stands out on white tabs
       { url: '/favicon-onyx.ico', media: '(prefers-color-scheme: light)' },
-
-      // 2. Default Fallback: Shows Silver (Light) icon
       { url: '/favicon-silver.ico' },
     ],
     apple: "/apple-icon.png",
   },
 
-  // Social Sharing
   openGraph: {
-    title: "VAYLEN - Precision Without Friction",
-    description: COPY.hero.subheadline,
+    title: "Vaylen | Precision Without Friction",
+    description: "The minimalist instrument for body composition. The core instrument is free.",
     url: "https://vaylen.app",
     siteName: "Vaylen",
     images: [
@@ -48,7 +43,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Vaylen - The minimalist instrument for body composition.",
+        alt: "Vaylen Interface",
       },
     ],
     locale: "en_US",
@@ -57,12 +52,11 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "VAYLEN - Precision Without Friction",
-    description: COPY.hero.subheadline,
+    title: "Vaylen | Precision Without Friction",
+    description: "The minimalist instrument for body composition. The core instrument is free.",
     images: ["/opengraph-image.png"],
   },
 
-  // Additional SEO
   robots: {
     index: true,
     follow: true,
@@ -74,12 +68,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
-  // Verification
-  verification: {
-    // google: 'your-google-verification-code', // Add when available
-    // yandex: 'your-yandex-verification-code', // Add when available
-  },
 };
 
 export default function RootLayout({
@@ -87,13 +75,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // THE SECRET WEAPON: Structured Data (JSON-LD)
+  // This tells Google: "This is a Software Application, and the Price is 0."
+  // TODO: Update this when pricing is finalized with lowPrice: 0 and highPrice: 19.99
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Vaylen',
+    applicationCategory: 'HealthApplication',
+    operatingSystem: 'iOS, Android, Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      description: 'The Essential Standard version is free forever.'
+    },
+    featureList: 'Macro Tracking, Workout Logging, Trend Weight Algorithms',
+    description: COPY.hero.subheadline
+  };
+
   return (
     <html lang="en">
       <body className="antialiased bg-bg text-ink">
-        {/* 2. Add the CookieScript here. 
-            strategy="afterInteractive" ensures it loads immediately 
-            after the page is usable. 
-        */}
+        {/* Inject JSON-LD invisible to user, visible to bots */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <Script
           src="https://cdn.cookie-script.com/s/ac712d3b6f78bbd302a93dc152937174.js"
           strategy="afterInteractive"
