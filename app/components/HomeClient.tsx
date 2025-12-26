@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Hero from "./Hero";
 import BentoGrid from "./BentoGrid";
+import PremiumModules from "./PremiumModules";
+import Nexus from "./Nexus";
 import Pricing from "./Pricing";
 import Navbar from "./Navbar";
 import AppLogoReveal from "./AppLogoReveal";
@@ -63,6 +65,14 @@ export default function HomeClient({ showJournal }: HomeClientProps) {
 
                 <motion.div variants={VARIANTS.fadeInUp}>
                     <BentoGrid />
+                </motion.div>
+
+                <motion.div variants={VARIANTS.fadeInUp}>
+                    <PremiumModules />
+                </motion.div>
+
+                <motion.div variants={VARIANTS.fadeInUp}>
+                    <Nexus />
                 </motion.div>
 
                 <AppShowcase />
