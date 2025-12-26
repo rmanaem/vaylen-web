@@ -14,7 +14,7 @@ import { DS } from '../../design-system/tokens';
 
 export const WaitlistEmail = () => (
     <Html>
-        <Preview>Vaylen // Waitlist Confirmed</Preview>
+        <Preview>Vaylen Waitlist Confirmed</Preview>
         <Body style={styles.main}>
             <Container style={styles.container}>
                 {/* Brand Header */}
