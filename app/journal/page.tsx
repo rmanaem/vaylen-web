@@ -5,7 +5,7 @@ import StandardPage from '../components/StandardPage';
 import JournalArticleGrid from '../components/JournalArticleGrid';
 
 export const metadata: Metadata = {
-    title: 'Blog',
+    title: 'Journal',
     description: 'Deep dives into hypertrophy science, training methodology, and nutrition.',
     openGraph: {
         title: 'Vaylen Journal',
