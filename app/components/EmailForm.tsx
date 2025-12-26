@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { COPY } from "../config/copy";
 import { Loader2, Check } from "lucide-react";
 // 1. Import Firestore methods
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -52,7 +53,7 @@ export default function EmailForm({
                             key="success"
                             initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
                             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                            className="w-full px-4 py-3 text-sm font-bold text-center text-white bg-white/10 border border-white/20 rounded-lg backdrop-blur-md shadow-[0_0_20px_-10px_rgba(255,255,255,0.1)]"
+                            className="w-full px-4 py-3 text-sm font-bold text-center text-white bg-white/10 border border-white/20 rounded backdrop-blur-md shadow-[0_0_20px_-10px_rgba(255,255,255,0.1)]"
                         >
                             <span className="flex items-center justify-center gap-2 select-none">
                                 <Check className="w-5 h-5" strokeWidth={2.5} />
@@ -73,20 +74,16 @@ export default function EmailForm({
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter email..."
+                                placeholder={COPY.footer.placeholder}
                                 disabled={status === "loading"}
-                                className="w-full px-4 py-3 text-sm font-medium transition-colors border rounded-lg bg-obsidian-light border-white/10 focus:border-steel-active focus:outline-none placeholder:text-steel-dark/50 text-ink disabled:opacity-50"
+                                className="w-full px-4 py-3 text-sm font-mono transition-colors border rounded bg-surface border-white/10 focus:border-steel-active focus:outline-none placeholder:text-steel-dark/50 text-ink disabled:opacity-50"
                             />
                             <button
                                 type="submit"
                                 disabled={status === "loading"}
-                                className="whitespace-nowrap px-6 py-3 text-sm font-bold tracking-wide uppercase rounded-lg bg-white text-black hover:bg-steel-active transition-colors disabled:opacity-70 disabled:cursor-not-allowed w-[100px] flex justify-center"
+                                className="px-6 py-3 text-sm font-bold tracking-wider uppercase transition-colors border rounded bg-steel-active text-bg border-steel-active hover:bg-white hover:text-bg disabled:opacity-50"
                             >
-                                {status === "loading" ? (
-                                    <Loader2 className="w-4 h-4 animate-spin" />
-                                ) : (
-                                    "JOIN"
-                                )}
+                                {status === "loading" ? "..." : COPY.footer.cta}
                             </button>
                         </motion.div>
                     )}

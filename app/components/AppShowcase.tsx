@@ -64,7 +64,7 @@ export default function AppShowcase() {
                                     {activeTab === index && (
                                         <motion.div
                                             layoutId="feature-highlight"
-                                            className="absolute inset-0 bg-surface-highlight border border-steel-active rounded-2xl shadow-[0_0_30px_-10px_rgba(229,229,234,0.1)]"
+                                            className="absolute inset-0 bg-surface-highlight border border-steel-active rounded"
                                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                         />
                                     )}
@@ -72,7 +72,7 @@ export default function AppShowcase() {
                                     {/* The Button Content */}
                                     <button
                                         onClick={() => setActiveTab(index)}
-                                        className="relative z-10 w-full text-left p-6 rounded-2xl transition-colors duration-300"
+                                        className="relative z-10 w-full text-left p-6 rounded transition-colors duration-300"
                                     >
                                         <h3 className={`text-lg font-bold mb-1 transition-colors duration-300 ${activeTab === index ? "text-white" : "text-ink-subtle"}`}>
                                             {feature.title}
@@ -93,9 +93,34 @@ export default function AppShowcase() {
                         transition={{ duration: 0.8 }}
                         className="relative h-[600px] w-full flex items-center justify-center"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-tr from-steel-active/10 to-transparent blur-[80px] rounded-full opacity-60" />
+                        {/* NEXUS CONNECTION LINE - Data Flow Indicator */}
+                        <motion.div
+                            className="absolute left-0 top-1/2 w-32 h-px bg-gradient-to-r from-steel-active/0 via-steel-active to-steel-active"
+                            animate={{
+                                opacity: [0.3, 1, 0.3],
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            {/* Pulse dot at the end */}
+                            <motion.div
+                                className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-steel-active rounded-full"
+                                animate={{
+                                    scale: [1, 1.5, 1],
+                                    opacity: [1, 0.5, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            />
+                        </motion.div>
 
-                        <div className="relative w-[300px] h-[600px] bg-black border-4 border-steel-idle rounded-[3rem] shadow-2xl overflow-hidden z-10">
+                        <div className="relative w-[300px] h-[600px] bg-black border-2 border-steel-active rounded-[2.5rem] overflow-hidden z-10">
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={features[activeTab].id}

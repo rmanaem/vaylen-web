@@ -51,20 +51,25 @@ export default function Footer() {
                     </div>
 
                     <div className="space-y-1">
-                        <p className={DS.typography.caption}>
-                            © {currentYear} <span className="text-ink">La Compagnie Vaylen Inc.</span>
+                        <p className="text-xs font-mono tracking-wider uppercase text-ink-tertiary">
+                            © {currentYear} <span className="text-ink">{COPY.footer.copyright}</span>
                         </p>
-                        <p className="text-[10px] text-ink-tertiary">
-                            {/* Ensure this variable in your config contains: "Vaylen is a trading name of La Compagnie Vaylen Inc." */}
+                        <p className="text-[10px] font-mono text-ink-tertiary">
                             {COPY.footer.trading}
+                        </p>
+                        <p className="text-[10px] font-mono text-steel-active mt-2">
+                            {COPY.footer.status}
                         </p>
                     </div>
                 </div>
 
                 {/* RIGHT: NEWSLETTER / WAITLIST */}
                 <div className="flex flex-col items-center md:items-end gap-4">
-                    <p className="text-sm font-semibold text-ink">
-                        Get early access to the beta.
+                    <h3 className="text-lg font-bold uppercase tracking-tight text-ink" style={{ letterSpacing: '-0.03em' }}>
+                        {COPY.footer.headline}
+                    </h3>
+                    <p className="text-sm text-ink-subtle text-center md:text-right max-w-md">
+                        {COPY.footer.description}
                     </p>
                     <EmailForm id="footer-email" />
                 </div>

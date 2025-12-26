@@ -1,7 +1,6 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { VARIANTS } from "../design-system/animations";
+import { COPY } from "../config/copy";
 import EmailForm from "./EmailForm";
 
 export default function Hero() {
@@ -24,7 +23,7 @@ export default function Hero() {
 
             {/* 1. THE TECH PILL BADGE */}
             <motion.div variants={VARIANTS.fadeInUp} className="mb-8">
-                <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                <div className="inline-flex items-center px-4 py-1.5 rounded-md border border-white/10 bg-white/5 backdrop-blur-sm">
                     {/* Lightning Icon */}
                     <svg
                         className="w-3 h-3 mr-2 text-steel-active"
@@ -35,7 +34,7 @@ export default function Hero() {
                         <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" />
                     </svg>
                     <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-steel-light">
-                        SYSTEM V1.0 // EARLY ACCESS
+                        {COPY.brand.version}
                     </span>
                 </div>
             </motion.div>
@@ -45,8 +44,8 @@ export default function Hero() {
                 variants={VARIANTS.fadeInUp}
                 className="text-6xl font-black uppercase tracking-tighter md:text-8xl lg:text-9xl text-ink leading-[0.9]"
             >
-                <span className="block text-ink">Log Fast.</span>
-                <span className="block text-steel-active/50">Train Smart.</span>
+                <span className="block text-ink">{COPY.hero.headline}</span>
+                <span className="block text-steel-active/50">{COPY.hero.headlineHighlight}</span>
             </motion.h1>
 
             {/* 3. SUBTEXT */}
@@ -54,7 +53,7 @@ export default function Hero() {
                 variants={VARIANTS.fadeInUp}
                 className="max-w-xl mt-8 text-lg font-medium text-steel-dark px-4"
             >
-                The precision instrument for body composition. Automated macro adjustments based on real-time fatigue and weight data.
+                {COPY.hero.subheadline}
             </motion.p>
 
             {/* 4. INPUT & BUTTON */}
@@ -65,23 +64,23 @@ export default function Hero() {
                 <EmailForm id="hero-input" />
             </motion.div>
 
-            {/* 5. APP OVERVIEW & PHONE MOCKUP */}
+            {/* 5. System OVERVIEW & PHONE MOCKUP */}
             <motion.div
                 variants={VARIANTS.fadeInUp}
                 className="relative mt-24 w-full max-w-5xl mx-auto flex flex-col items-center"
             >
                 <span className="mb-6 text-[10px] font-bold tracking-[0.2em] uppercase text-steel-dark/70">
-                    App Overview
+                    System Overview
                 </span>
 
                 {/* Phone Container */}
                 <div className="relative w-full px-4 flex justify-center">
-                    {/* The Device Frame/Glow */}
-                    <div className="relative rounded-t-[2.5rem] border-t border-x border-white/10 bg-obsidian-light/50 p-2 backdrop-blur-sm shadow-2xl shadow-steel-active/5">
+                    {/* The Device Frame */}
+                    <div className="relative rounded-t-[2rem] border-t-2 border-x-2 border-steel-active bg-obsidian-light/50 p-2 backdrop-blur-sm">
                         <img
-                            src="/app-screenshot.png"
-                            alt="App Overview screen showing macro tracking"
-                            className="w-[300px] md:w-[380px] h-auto rounded-t-[2rem] mx-auto opacity-90"
+                            src="/system-screenshot.png"
+                            alt="System Overview screen showing macro tracking"
+                            className="w-[300px] md:w-[380px] h-auto rounded-t-[1.75rem] mx-auto opacity-90"
                         />
                     </div>
 
