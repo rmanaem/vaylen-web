@@ -10,7 +10,7 @@ export default function Hero() {
             {/* 0. MOBILE LOGO (Hidden on Desktop) */}
             <motion.div
                 variants={VARIANTS.fadeInUp}
-                className="block md:hidden mb-12 w-32 h-32 text-[#E5E5EA]"
+                className="block md:hidden mb-12 w-32 h-32 text-steel-active"
             >
                 <svg
                     viewBox="517.85 517.85 964.3 964.3"
@@ -70,7 +70,7 @@ export default function Hero() {
                 className="relative mt-24 w-full max-w-5xl mx-auto flex flex-col items-center"
             >
                 <span className="mb-6 text-[10px] font-bold tracking-[0.2em] uppercase text-steel-dark/70">
-                    System Overview
+                    {COPY.hero.systemOverview}
                 </span>
 
                 {/* Phone Container */}

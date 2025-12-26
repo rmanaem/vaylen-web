@@ -25,7 +25,7 @@ export default function AppLogoReveal({
     return (
         <div className="flex items-center justify-center w-full h-full">
             <svg
-                className="w-32 h-32 md:w-48 md:h-48"
+                className="w-32 h-32 md:w-48 md:h-48 text-steel-active"
                 viewBox={viewBox}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,11 +36,11 @@ export default function AppLogoReveal({
                         d={pathData.d}
                         transform={pathData.transform}
 
-                        stroke="#E5E5EA"
+                        stroke="currentColor"
                         strokeWidth="15"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        fill="#E5E5EA"
+                        fill="currentColor"
 
                         initial={{ pathLength: 0, fillOpacity: 0, strokeOpacity: 1 }}
                         animate={{ pathLength: 1, fillOpacity: 1, strokeOpacity: 0 }}

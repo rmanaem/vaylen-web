@@ -9,6 +9,7 @@ export const COPY = {
         cta: "JOIN",
         success: "WAITLIST CONFIRMED.",
         placeholder: "Enter email...",
+        systemOverview: "System Overview",
     },
     showcase: {
         headline: "The Interface.",
