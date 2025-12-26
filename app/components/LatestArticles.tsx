@@ -45,7 +45,7 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
                         </p>
                     </div>
                     <Link
-                        href="/blog"
+                        href="/journal"
                         className="text-sm font-medium text-steel-active hover:text-white transition-colors flex items-center gap-1"
                     >
                         View all articles →
