@@ -1,16 +1,29 @@
 import type { Metadata } from "next";
-import Script from "next/script"; // 1. Import the Script component
+import Script from "next/script";
 import "./globals.css";
 import { COPY } from "./config/copy";
-// TODO: Update metadata
 
 export const metadata: Metadata = {
   // Base Metadata
   title: {
     template: "%s | Vaylen",
-    default: "VAYLEN - Log Fast. Train Smart.",
+    default: "VAYLEN - Precision Without Friction",
   },
   description: COPY.hero.subheadline,
+
+  // Keywords for SEO
+  keywords: [
+    "body composition tracking",
+    "nutrition tracking",
+    "workout logging",
+    "TDEE calculator",
+    "macro tracking",
+    "training program",
+    "adaptive nutrition",
+    "autoregulated training",
+    "metabolism tracking",
+    "fitness tracker"
+  ],
 
   // Dynamic Favicons
   icons: {
@@ -26,7 +39,7 @@ export const metadata: Metadata = {
 
   // Social Sharing
   openGraph: {
-    title: "VAYLEN - Log Fast. Train Smart.",
+    title: "VAYLEN - Precision Without Friction",
     description: COPY.hero.subheadline,
     url: "https://vaylen.app",
     siteName: "Vaylen",
@@ -35,7 +48,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Vaylen - The precision instrument for body composition.",
+        alt: "Vaylen - The minimalist instrument for body composition.",
       },
     ],
     locale: "en_US",
@@ -44,9 +57,28 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "VAYLEN - Log Fast. Train Smart.",
+    title: "VAYLEN - Precision Without Friction",
     description: COPY.hero.subheadline,
     images: ["/opengraph-image.png"],
+  },
+
+  // Additional SEO
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  // Verification
+  verification: {
+    // google: 'your-google-verification-code', // Add when available
+    // yandex: 'your-yandex-verification-code', // Add when available
   },
 };
 
