@@ -128,7 +128,6 @@ The Nexus requires a baseline. Join the calibration cohort to establish your met
 **System Footer (Bottom Bar):**
 **Left:**
 `© 2025 LA COMPAGNIE VAYLEN INC.`
-`SYSTEM STATUS: ONLINE`
 
 **Right:**
 `[ TERMS ]`  `[ PRIVACY ]`  `[ HEALTH ]`
