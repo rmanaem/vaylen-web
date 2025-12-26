@@ -8,6 +8,7 @@ import PremiumModules from "./PremiumModules";
 import Nexus from "./Nexus";
 import Pricing from "./Pricing";
 import Navbar from "./Navbar";
+import Roadmap from "./Roadmap";
 import AppLogoReveal from "./AppLogoReveal";
 import { VARIANTS } from "../design-system/animations";
 import AppShowcase from "./AppShowcase";
@@ -67,6 +68,7 @@ export default function HomeClient({ showJournal }: HomeClientProps) {
                     <BentoGrid />
                 </motion.div>
 
+                {/* HIDDEN FOR LAUNCH
                 <motion.div variants={VARIANTS.fadeInUp}>
                     <PremiumModules />
                 </motion.div>
@@ -74,12 +76,19 @@ export default function HomeClient({ showJournal }: HomeClientProps) {
                 <motion.div variants={VARIANTS.fadeInUp}>
                     <Nexus />
                 </motion.div>
+                */}
 
                 <AppShowcase />
 
                 <motion.div variants={VARIANTS.fadeInUp}>
+                    <Roadmap />
+                </motion.div>
+
+                {/* HIDDEN FOR LAUNCH
+                <motion.div variants={VARIANTS.fadeInUp}>
                     <Pricing />
                 </motion.div>
+                */}
             </motion.div>
         </>
     );

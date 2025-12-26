@@ -1,6 +1,6 @@
 export const COPY = {
     brand: {
-        version: "System V1.0 // Early Access",
+        version: "System V0.1 // Beta Access",
     },
     hero: {
         headline: "PRECISION",
