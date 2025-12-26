@@ -88,6 +88,5 @@ export const COPY = {
         copyright: "La Compagnie Vaylen Inc.",
         rights: "All rights reserved.",
         trading: "Vaylen is a trading name of La Compagnie Vaylen Inc.",
-        status: "SYSTEM STATUS: ONLINE"
     }
 } as const;

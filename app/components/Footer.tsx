@@ -26,7 +26,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-bold text-ink mb-2 tracking-tight">VAYLEN</h3>
                         <p className={`${DS.typography.caption} max-w-xs mx-auto md:mx-0`}>
-                            The precision instrument for physical mastery.
+                            Precision Without Friction.
                         </p>
                     </div>
 
@@ -56,9 +56,6 @@ export default function Footer() {
                         </p>
                         <p className="text-[10px] font-mono text-ink-tertiary">
                             {COPY.footer.trading}
-                        </p>
-                        <p className="text-[10px] font-mono text-steel-active mt-2">
-                            {COPY.footer.status}
                         </p>
                     </div>
                 </div>
