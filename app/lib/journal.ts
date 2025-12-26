@@ -11,6 +11,12 @@ export type Article = {
     date: string;
     description: string;
     content: string; // The raw markdown content
+    // Optional metadata
+    category?: string;
+    readTime?: string;
+    author?: string;
+    keywords?: string[];
+    references?: string[]; // Array of citation strings
 };
 
 export function getSortedArticles(): Omit<Article, 'content'>[] {
@@ -31,7 +37,16 @@ export function getSortedArticles(): Omit<Article, 'content'>[] {
 
             return {
                 slug,
-                ...(data as { title: string; date: string; description: string }),
+                ...(data as {
+                    title: string;
+                    date: string;
+                    description: string;
+                    category?: string;
+                    readTime?: string;
+                    author?: string;
+                    keywords?: string[];
+                    references?: string[];
+                }),
             };
         });
 
@@ -52,6 +67,15 @@ export function getArticleData(slug: string): Article | null {
     return {
         slug,
         content,
-        ...(data as { title: string; date: string; description: string }),
+        ...(data as {
+            title: string;
+            date: string;
+            description: string;
+            category?: string;
+            readTime?: string;
+            author?: string;
+            keywords?: string[];
+            references?: string[];
+        }),
     };
 }

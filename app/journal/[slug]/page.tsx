@@ -1,9 +1,10 @@
-import { getArticleData, getSortedArticles } from '@/lib/journal';
+import { getArticleData, getSortedArticles, Article } from '@/lib/journal';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import Link from 'next/link';
 import { Metadata } from 'next';
 import StandardPage from '../../components/StandardPage';
+import ArticleLayout from '../../components/ArticleLayout';
+import EmailForm from '../../components/EmailForm';
 
 // Define the Props type according to Next.js 15+ changes
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
 // 1. Generate Static Paths (SSG)
 // This tells Next.js to pre-build these pages at deploy time for instant loading.
 export async function generateStaticParams() {
-    const articles = getSortedArticles();
+    const articles: Omit<Article, 'content'>[] = getSortedArticles();
     return articles.map((article) => ({
         slug: article.slug,
     }));
@@ -50,6 +51,7 @@ const components = {
     a: (props: any) => <a className="text-blue-400 hover:underline" {...props} />,
     ul: (props: any) => <ul className="list-disc pl-5 mb-4 text-ink-subtle space-y-1" {...props} />,
     li: (props: any) => <li className="pl-1" {...props} />,
+    EmailForm: EmailForm,
 };
 
 // 4. The Page Component
@@ -63,38 +65,9 @@ export default async function JournalArticle({ params }: Props) {
 
     return (
         <StandardPage>
-            <article className="max-w-3xl mx-auto">
-
-                {/* Navigation & Header */}
-                <header className="mb-10 border-b border-steel-idle/20 pb-8">
-                    <Link
-                        href="/journal"
-                        className="text-sm text-ink-tertiary hover:text-ink mb-4 inline-block transition-colors"
-                    >
-                        ← Back to Journal
-                    </Link>
-
-                    <h1 className="text-3xl md:text-4xl font-bold text-ink mb-4 tracking-tight">
-                        {article.title}
-                    </h1>
-
-                    <time className="text-sm text-ink-tertiary">
-                        {new Date(article.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                            timeZone: 'UTC',
-                        })}
-                    </time>
-                </header>
-
-                {/* Content Body */}
-                {/* We use 'prose-invert' because your app is dark mode */}
-                <div className="prose prose-invert prose-lg max-w-none">
-                    <MDXRemote source={article.content} components={components} />
-                </div>
-
-            </article>
+            <ArticleLayout article={article}>
+                <MDXRemote source={article.content} components={components} />
+            </ArticleLayout>
         </StandardPage>
     );
 }
