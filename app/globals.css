@@ -32,6 +32,9 @@
   --text-body: 16px;
   --text-caption: 13px;
 
+  /* Monospace Stack for Data/Labels */
+  --font-mono: "JetBrains Mono", "SF Mono", "Courier New", monospace;
+
   /* --- 3. APP SPACING (Renamed to 'space-' to avoid layout bugs) --- */
   --spacing-space-xs: 4px;
   --spacing-space-sm: 8px;
@@ -55,13 +58,13 @@ body {
 /* Utility Classes */
 .font-hero {
   font-weight: 800;
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
   line-height: 1;
 }
 
 .font-display {
   font-weight: 700;
-  letter-spacing: -1px;
+  letter-spacing: -1.2px;
   line-height: 1.1;
 }
 
@@ -84,4 +87,15 @@ body {
 .font-button {
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.font-data {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
