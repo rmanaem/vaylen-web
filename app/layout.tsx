@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { COPY } from "./config/copy";
+import ThemeFavicon from "./components/ThemeFavicon";
 
 export const metadata: Metadata = {
   // SEO STRATEGY: Combine Brand (Precision) with Function (Tracker)
@@ -26,10 +27,7 @@ export const metadata: Metadata = {
   ],
 
   icons: {
-    icon: [
-      { url: '/favicon-onyx.ico', media: '(prefers-color-scheme: light)' },
-      { url: '/favicon-silver.ico' },
-    ],
+    icon: '/favicon-silver.ico',
     apple: "/apple-icon.png",
   },
 
@@ -97,6 +95,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-bg text-ink">
+        <ThemeFavicon />
         {/* Inject JSON-LD invisible to user, visible to bots */}
         <script
           type="application/ld+json"
