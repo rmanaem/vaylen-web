@@ -54,7 +54,7 @@ export const WaitlistEmail = () => (
 
                 {/* Footer */}
                 <Text style={styles.footer}>
-                    © 2025 LA COMPAGNIE VAYLEN INC.
+                    © {new Date().getFullYear()} LA COMPAGNIE VAYLEN INC.
                 </Text>
             </Container>
         </Body>
