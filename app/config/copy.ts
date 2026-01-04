@@ -39,7 +39,7 @@ export const COPY = {
         ]
     },
     roadmap: {
-        label: "SYSTEM EXPANSION Q1 2025",
+        label: "SYSTEM EXPANSION Q1 2026",
         status: "[ UPCOMING ]",
         items: [
             "ADAPTIVE NUTRITION ENGINE",
